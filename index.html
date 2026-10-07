@@ -1,1 +1,372 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Controle Educacional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A192F',      /* Navy Blue Principal */
+                            blue: '#1E3A8A',      /* Navy Blue Intermediário */
+                            accent: '#2563EB',    /* Azul Destaque */
+                            light: '#F8FAFC'      /* Fundo Claro */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        .custom-gradient-navy {
+            background: linear-gradient(135deg, #0A192F 0%, #1E3A8A 100%);
+        }
+
+        /* 3D Perspective Visual Effects */
+        .perspective-container {
+            perspective: 1200px;
+        }
+        
+        .card-3d-left {
+            transform: rotateY(16deg) rotateX(8deg) rotateZ(-3deg) scale(0.96);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card-3d-center {
+            transform: translateY(-16px) rotateY(0deg) rotateX(6deg) scale(1.02);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 20;
+        }
+        
+        .card-3d-right {
+            transform: rotateY(-16deg) rotateX(8deg) rotateZ(3deg) scale(0.96);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .perspective-container:hover .card-3d-left,
+        .perspective-container:hover .card-3d-center,
+        .perspective-container:hover .card-3d-right {
+            transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+        }
+
+        /* Modal backdrop blur transition */
+        .modal-active {
+            display: flex !important;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased selection:bg-brand-blue selection:text-white">
+
+    <main class="w-full">
+        <!-- Hero Section - White Background -->
+        <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 bg-white overflow-hidden border-b border-slate-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                
+                <!-- BRAND LOGO CONTAINER: MATCHING IMAGE (BLUE ROUNDED CARD WITH CAPELO + API TEXT INSIDE) -->
+                <div class="inline-flex flex-col items-center justify-center mb-8">
+                    <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-[32px] bg-gradient-to-b from-[#0e52b2] via-[#093e91] to-[#032057] p-4 flex flex-col items-center justify-center shadow-2xl border border-blue-400/40 relative overflow-hidden group">
+                        <!-- Glass reflection effect matching icon image -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 pointer-events-none"></div>
+                        
+                        <!-- Capelo SVG with tassel on right -->
+                        <svg class="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10L12 5L2 10L12 15L22 10Z"/>
+                            <path d="M6 12V16.5C6 18 8.68629 19.5 12 19.5C15.3137 19.5 18 18 18 16.5V12"/>
+                            <!-- Capelo Tassel (Pingente) on right -->
+                            <path d="M19.5 11.2V16C19.5 17 20.5 18 21 18" stroke-width="2"/>
+                        </svg>
+                        
+                        <span class="mt-1 text-2xl sm:text-3xl font-black tracking-wider text-white uppercase leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] font-sans">API</span>
+                    </div>
+                </div>
+
+                <!-- MAIN HEADING -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-tight mb-5">
+                    API - Controle Educacional
+                </h1>
+
+                <p class="text-slate-600 text-lg sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed mb-8">
+                    A plataforma inteligente e simplificada para gestão de pontualidade, controle de atrasos e acompanhamento de turmas.
+                </p>
+
+                <!-- CALL TO ACTION BUTTONS & SOCIAL / CONTACT LINKS -->
+                <div class="flex flex-col items-center justify-center gap-4">
+                    
+                    <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
+                        <!-- Botão Acessar Plataforma Real -->
+                        <a href="https://projeto-de-atrasos-online.base44.app" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="w-full sm:w-auto bg-brand-dark hover:bg-brand-blue text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                            <span>Acessar Plataforma</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Social Media & Email Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
+                        <!-- YouTube Button -->
+                        <a href="https://www.youtube.com/@API-ControleEducacional" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 transition-all shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-red-600" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.51 9.376.51 9.376.51s7.505 0 9.377-.51a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <span>@API-ControleEducacional</span>
+                        </a>
+
+                        <!-- Instagram Button -->
+                        <a href="https://www.instagram.com/api_controle.educacional" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 bg-slate-50 hover:bg-pink-50 hover:text-pink-600 text-slate-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 transition-all shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-pink-600" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span>api_controle.educacional</span>
+                        </a>
+
+                        <!-- Email Button -->
+                        <a href="mailto:API.registrodeatrasos@gmail.com" 
+                           class="inline-flex items-center gap-2 bg-slate-50 hover:bg-blue-50 hover:text-brand-accent text-slate-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 transition-all shadow-sm">
+                            <svg class="w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span>API.registrodeatrasos@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3D Perspective Screenshots Section -->
+        <section class="py-16 bg-slate-50 overflow-hidden border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-dark">
+                        Conheça a Interface do Sistema
+                    </h2>
+                </div>
+
+                <!-- 3D Perspective Grid -->
+                <div class="perspective-container grid md:grid-cols-3 gap-6 pt-4 pb-10 items-center">
+                    
+                    <!-- Screenshot 1: Painel do Professor -->
+                    <div class="card-3d-left bg-white rounded-2xl shadow-2xl p-2.5 border border-slate-200/80 group">
+                        <div class="bg-brand-dark text-white px-4 py-2.5 rounded-t-xl text-xs font-semibold flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"/></svg>
+                                Painel do Professor
+                            </span>
+                        </div>
+                        <!-- Simulated Screenshot Content -->
+                        <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-3">
+                            <div class="text-[11px] text-slate-400">Boa noite, DAVI!</div>
+                            <div class="text-sm font-bold">Painel do professor</div>
+                            <div class="grid grid-cols-2 gap-2 text-center text-slate-900">
+                                <div class="bg-white p-2 rounded-lg text-left">
+                                    <div class="text-[9px] text-slate-500 uppercase font-bold">Turmas</div>
+                                    <div class="text-base font-extrabold text-brand-dark">0</div>
+                                </div>
+                                <div class="bg-white p-2 rounded-lg text-left">
+                                    <div class="text-[9px] text-slate-500 uppercase font-bold">Alunos</div>
+                                    <div class="text-base font-extrabold text-brand-dark">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 2: Alunos Atrasados -->
+                    <div class="card-3d-center bg-white rounded-2xl shadow-2xl p-2.5 border border-slate-200/80 group">
+                        <div class="bg-brand-dark text-white px-4 py-2.5 rounded-t-xl text-xs font-semibold flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Alunos Atrasados
+                            </span>
+                        </div>
+                        <!-- Simulated Screenshot Content -->
+                        <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-3">
+                            <div class="text-sm font-bold">Alunos atrasados</div>
+                            <div class="flex gap-2">
+                                <span class="bg-brand-blue text-[10px] px-2 py-1 rounded">Hoje</span>
+                                <span class="bg-slate-800 text-[10px] px-2 py-1 rounded text-slate-400">7 Dias</span>
+                                <span class="bg-slate-800 text-[10px] px-2 py-1 rounded text-slate-400">Todos</span>
+                            </div>
+                            <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700 text-[10px] text-slate-300 flex justify-between items-center">
+                                <span>Filtrar por nome ou matrícula...</span>
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot 3: Gestão de Colégios -->
+                    <div class="card-3d-right bg-white rounded-2xl shadow-2xl p-2.5 border border-slate-200/80 group">
+                        <div class="bg-brand-dark text-white px-4 py-2.5 rounded-t-xl text-xs font-semibold flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg>
+                                Trocar Colégio
+                            </span>
+                        </div>
+                        <!-- Simulated Screenshot Content -->
+                        <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-2">
+                            <div class="bg-white text-slate-900 p-3 rounded-lg shadow-inner text-center space-y-1">
+                                <div class="font-bold text-xs">Trocar colégio</div>
+                                <div class="text-[10px] text-slate-500 leading-tight">Sua conta muda apenas o colégio em uso. Os dados continuam separados.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlights Section (Navy Background) -->
+        <section class="py-20 custom-gradient-navy text-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">
+                        Recursos Principais
+                    </h2>
+                    <p class="text-blue-100/80 mt-3 text-base sm:text-lg">
+                        Desenvolvido para organizar o cotidiano escolar de forma prática, segura e ágil.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Registro em Tempo Real</h3>
+                        <p class="text-blue-100/70 text-sm leading-relaxed">
+                            Controle imediato da entrada dos alunos com salvamento em nuvem instantâneo.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Filtros Inteligentes</h3>
+                        <p class="text-blue-100/70 text-sm leading-relaxed">
+                            Consulte relatórios por data, turma ou aluno com extrema precisão e velocidade.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Acesso Multi-escola</h3>
+                        <p class="text-blue-100/70 text-sm leading-relaxed">
+                            Gerencie múltiplos colégios e turmas em um único perfil unificado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="mb-6 inline-flex p-3 rounded-full bg-slate-100 border border-slate-200">
+                    <svg class="w-8 h-8 text-brand-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-extrabold text-brand-dark mb-4">
+                    Pronto para acessar a plataforma?
+                </h2>
+                <p class="text-slate-600 mb-8 max-w-lg mx-auto">
+                    Acesse diretamente o sistema online de gestão e registro de atrasos.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://projeto-de-atrasos-online.base44.app" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center justify-center gap-3 bg-brand-dark hover:bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg transition-all transform hover:-translate-y-0.5 w-full sm:w-auto">
+                        <span>Abrir Sistema Online</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-sm">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-b from-blue-600 to-blue-900 flex flex-col items-center justify-center border border-blue-400/30">
+                    <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10L12 5L2 10L12 15L22 10Z"/>
+                        <path d="M6 12V16.5C6 18 8.68629 19.5 12 19.5C15.3137 19.5 18 18 18 16.5V12"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-bold text-white tracking-wide block">API - Controle Educacional</span>
+                    <span class="text-xs text-slate-500">Gestão de Pontualidade & Turmas</span>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="https://www.youtube.com/@API-ControleEducacional" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition-colors text-xs flex items-center gap-1.5">
+                    <span>YouTube</span>
+                </a>
+                <span>•</span>
+                <a href="https://www.instagram.com/api_controle.educacional" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors text-xs flex items-center gap-1.5">
+                    <span>Instagram</span>
+                </a>
+                <span>•</span>
+                <a href="mailto:API.registrodeatrasos@gmail.com" class="hover:text-blue-400 transition-colors text-xs flex items-center gap-1.5">
+                    <span>E-mail</span>
+                </a>
+            </div>
+
+            <p class="text-xs">&copy; <span id="year"></span> API - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
