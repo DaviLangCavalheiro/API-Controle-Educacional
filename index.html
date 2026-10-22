@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -63,17 +62,6 @@
         .perspective-container:hover .card-3d-right {
             transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
         }
-
-        /* Modal backdrop blur transition */
-        .modal-active {
-            display: flex !important;
-            animation: fadeIn 0.3s forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-brand-blue selection:text-white">
@@ -83,17 +71,16 @@
         <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 bg-white overflow-hidden border-b border-slate-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 
-                <!-- BRAND LOGO CONTAINER: MATCHING IMAGE (BLUE ROUNDED CARD WITH CAPELO + API TEXT INSIDE) -->
+                <!-- BRAND LOGO CONTAINER -->
                 <div class="inline-flex flex-col items-center justify-center mb-8">
                     <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-[32px] bg-gradient-to-b from-[#0e52b2] via-[#093e91] to-[#032057] p-4 flex flex-col items-center justify-center shadow-2xl border border-blue-400/40 relative overflow-hidden group">
-                        <!-- Glass reflection effect matching icon image -->
+                        <!-- Glass reflection effect -->
                         <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 pointer-events-none"></div>
                         
-                        <!-- Capelo SVG with tassel on right -->
+                        <!-- Capelo SVG -->
                         <svg class="w-16 h-16 sm:w-20 sm:h-20 text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 10L12 5L2 10L12 15L22 10Z"/>
                             <path d="M6 12V16.5C6 18 8.68629 19.5 12 19.5C15.3137 19.5 18 18 18 16.5V12"/>
-                            <!-- Capelo Tassel (Pingente) on right -->
                             <path d="M19.5 11.2V16C19.5 17 20.5 18 21 18" stroke-width="2"/>
                         </svg>
                         
@@ -101,20 +88,19 @@
                     </div>
                 </div>
 
-                <!-- MAIN HEADING -->
+                <!-- MAIN HEADING & SUBTITLE -->
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-tight mb-5">
-                    API - Controle Educacional
+                    Transforme a Gestão de Atrasos e a Convivência na Sua Escola
                 </h1>
 
-                <p class="text-slate-600 text-lg sm:text-xl max-w-2xl mx-auto font-normal leading-relaxed mb-8">
-                    A plataforma inteligente e simplificada para gestão de pontualidade, controle de atrasos e acompanhamento de turmas.
+                <p class="text-slate-600 text-lg sm:text-xl max-w-3xl mx-auto font-normal leading-relaxed mb-8">
+                    Uma plataforma completa, inteligente e segura para conectar a equipe pedagógica, professores, alunos e administradores em um só lugar.
                 </p>
 
                 <!-- CALL TO ACTION BUTTONS & SOCIAL / CONTACT LINKS -->
                 <div class="flex flex-col items-center justify-center gap-4">
                     
                     <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
-                        <!-- Botão Acessar Plataforma Real -->
                         <a href="https://api-controle-educacional-786e6a9b.base44.app" 
                            target="_blank" 
                            rel="noopener noreferrer" 
@@ -128,7 +114,6 @@
 
                     <!-- Social Media & Email Buttons -->
                     <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
-                        <!-- Instagram Button -->
                         <a href="https://www.instagram.com/api_registros.de.atrasos" 
                            target="_blank" 
                            rel="noopener noreferrer"
@@ -139,7 +124,6 @@
                             <span>api_controle.educacional</span>
                         </a>
 
-                        <!-- Email Button -->
                         <a href="mailto:API.registrodeatrasos@gmail.com" 
                            class="inline-flex items-center gap-2 bg-slate-50 hover:bg-blue-50 hover:text-brand-accent text-slate-700 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-200 transition-all shadow-sm">
                             <svg class="w-4 h-4 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,7 +157,6 @@
                                 Painel do Professor
                             </span>
                         </div>
-                        <!-- Simulated Screenshot Content -->
                         <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-3">
                             <div class="text-[11px] text-slate-400">Boa noite, DAVI!</div>
                             <div class="text-sm font-bold">Painel do professor</div>
@@ -198,7 +181,6 @@
                                 Alunos Atrasados
                             </span>
                         </div>
-                        <!-- Simulated Screenshot Content -->
                         <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-3">
                             <div class="text-sm font-bold">Alunos atrasados</div>
                             <div class="flex gap-2">
@@ -221,7 +203,6 @@
                                 Trocar Colégio
                             </span>
                         </div>
-                        <!-- Simulated Screenshot Content -->
                         <div class="bg-slate-900 text-white p-4 rounded-b-xl border-t border-slate-800 space-y-2">
                             <div class="bg-white text-slate-900 p-3 rounded-lg shadow-inner text-center space-y-1">
                                 <div class="font-bold text-xs">Trocar colégio</div>
@@ -234,57 +215,93 @@
             </div>
         </section>
 
-        <!-- Feature Highlights Section (Navy Background) -->
+        <!-- Detailed Features / "Por que escolher a nossa plataforma?" Section -->
         <section class="py-20 custom-gradient-navy text-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">
-                        Recursos Principais
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+                        Por que escolher a nossa plataforma?
                     </h2>
                     <p class="text-blue-100/80 mt-3 text-base sm:text-lg">
-                        Desenvolvido para organizar o cotidiano escolar de forma prática, segura e ágil.
+                        Soluções sob medida para modernizar a rotina pedagógica com inteligência e praticidade.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Feature Card 1 -->
-                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
-                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                                <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                                    <polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Controle de Atrasos Inteligente</h3>
+                            <p class="text-blue-100/70 text-sm leading-relaxed">
+                                Registre e monitore pontualidade em poucos cliques, com notificações automáticas para os professores responsáveis e histórico completo.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Registro em Tempo Real</h3>
-                        <p class="text-blue-100/70 text-sm leading-relaxed">
-                            Controle imediato da entrada dos alunos com salvamento em nuvem instantâneo.
-                        </p>
                     </div>
 
                     <!-- Feature Card 2 -->
-                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
-                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Análises e Gráficos Pedagógicos</h3>
+                            <p class="text-blue-100/70 text-sm leading-relaxed">
+                                Transforme dados em decisões. Acompanhe relatórios em tempo real para identificar padrões e agir preventivamente.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Filtros Inteligentes</h3>
-                        <p class="text-blue-100/70 text-sm leading-relaxed">
-                            Consulte relatórios por data, turma ou aluno com extrema precisão e velocidade.
-                        </p>
                     </div>
 
                     <!-- Feature Card 3 -->
-                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105">
-                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 0115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Importação Simplificada de Alunos</h3>
+                            <p class="text-blue-100/70 text-sm leading-relaxed">
+                                Suba listas em PDF, Excel ou CSV diretamente no seu navegador de forma rápida e segura, mantendo os registros sempre atualizados.
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Acesso Multi-escola</h3>
-                        <p class="text-blue-100/70 text-sm leading-relaxed">
-                            Gerencie múltiplos colégios e turmas em um único perfil unificado.
-                        </p>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Progressão e Histórico Garantidos</h3>
+                            <p class="text-blue-100/70 text-sm leading-relaxed">
+                                Gerencie o avanço do ano letivo automaticamente sem perder o histórico ou o cadastro dos estudantes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 5 -->
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:scale-105 md:col-span-2 lg:col-span-2 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Segurança e Privacidade em Primeiro Lugar</h3>
+                            <p class="text-blue-100/70 text-sm leading-relaxed">
+                                Arquitetura multi-tenant com isolamento total de dados por escola e registro transparente de auditoria para todas as ações.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -300,17 +317,17 @@
                     </svg>
                 </div>
                 <h2 class="text-3xl font-extrabold text-brand-dark mb-4">
-                    Pronto para acessar a plataforma?
+                    Pronto para simplificar a rotina da sua instituição?
                 </h2>
                 <p class="text-slate-600 mb-8 max-w-lg mx-auto">
-                    Acesse diretamente o sistema online de gestão e registro de atrasos.
+                    Acesse diretamente a plataforma inteligente e transforme a gestão escolar agora mesmo.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="https://api-controle-educacional-786e6a9b.base44.app" 
                        target="_blank" 
                        rel="noopener noreferrer" 
                        class="inline-flex items-center justify-center gap-3 bg-brand-dark hover:bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg transition-all transform hover:-translate-y-0.5 w-full sm:w-auto">
-                        <span>Abrir Sistema Online</span>
+                        <span>Acessar Plataforma Agora</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
@@ -337,8 +354,6 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4">
-                </a>
-                <span>•</span>
                 <a href="https://www.instagram.com/api_registros.de.atrasos" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors text-xs flex items-center gap-1.5">
                     <span>Instagram</span>
                 </a>
